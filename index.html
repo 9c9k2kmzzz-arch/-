@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827">
+<meta http-equiv="refresh" content="60">
+<title>東京 鉄道運行ダッシュボード</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#142033;--line:#2a3a52;--muted:#a9b8cc;--text:#f5f7fb;--blue:#65b2ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+header{padding:18px 16px;background:#142944;border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:auto;padding:14px}
+h1{font-size:21px;margin:0 0 6px}.muted{font-size:12px;color:var(--muted);line-height:1.6}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+a.btn{display:inline-block;background:#24364d;color:#eaf2fc;text-decoration:none;padding:11px 13px;border-radius:9px;font-size:13px;font-weight:700}
+a.primary{background:#1769bd;color:white}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.pill{font-size:12px;border-radius:20px;padding:7px 11px;background:#1d2b40}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.green{background:#22c55e}.yellow{background:#f59e0b}.red{background:#ef4444}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.panelhead{padding:13px 15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:8px;align-items:center}
+.panelhead strong{font-size:14px}
+iframe{display:block;width:100%;height:78vh;min-height:650px;border:0;background:#fff}
+.note{font-size:12px;line-height:1.7;color:var(--muted);margin:13px 2px}
+@media(max-width:600px){h1{font-size:18px}iframe{height:76vh;min-height:620px}}
+</style>
+</head>
+<body>
+<header><div class="wrap" style="padding:0"><h1>東京都内・主要路線 運行ダッシュボード</h1><div class="muted">遅れのある列車を路線別に確認｜このページは60秒ごとに更新</div></div></header>
+<main class="wrap">
+<div class="legend">
+<span class="pill"><i class="dot green"></i>ほぼ定時</span>
+<span class="pill"><i class="dot yellow"></i>5分以上の遅れがある列車</span>
+<span class="pill"><i class="dot red"></i>運転見合わせ等は各社公式で確認</span>
+</div>
+<div class="row">
+<a class="btn primary" href="https://tabinomemo.jp/train" target="_blank" rel="noopener">運行状況を別画面で開く ↗</a>
+<a class="btn" href="https://transit.yahoo.co.jp/diainfo/pref/13" target="_blank" rel="noopener">東京の遅延・運休一覧 ↗</a>
+<a class="btn" href="https://traininfo.jreast.co.jp/train_info/" target="_blank" rel="noopener">JR東日本公式 ↗</a>
+<a class="btn" href="https://www.tokyometro.jp/" target="_blank" rel="noopener">東京メトロ公式 ↗</a>
+<a class="btn" href="https://www.kotsu.metro.tokyo.jp/" target="_blank" rel="noopener">都営交通公式 ↗</a>
+</div>
+<section class="panel">
+<div class="panelhead"><strong>路線別のリアルタイム運行・列車遅れ</strong><span class="muted">データ提供元の更新に連動</span></div>
+<iframe src="https://tabinomemo.jp/train" title="路線別リアルタイム運行情報" loading="eager" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</section>
+<p class="note"><b>データについて：</b>表示部分は公共交通オープンデータ等を使う「旅のメモ」の路線別運行情報です。列車位置・遅れは対象路線で約30秒ごと、運行情報は約1分ごとに取得されます。全社・全路線を網羅するものではありません。東京メトロ等一部は時刻表からの位置予測で、遅れや運休を反映しない場合があります。小田急・京成など未対応事業者もあります。運転見合わせ・運休など重要な判断は、必ず鉄道会社の公式情報も確認してください。</p>
+<p class="muted">最終確認：ページを開いた時点の提供元表示をご確認ください。表示データの正確性・完全性は保証されません。</p>
+</main>
+</body></html>
